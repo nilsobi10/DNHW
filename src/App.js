@@ -1,8 +1,13 @@
+
+
+//Importing some Stuff
 import React from 'react';
 import headerbg from './assets/header.png';
 import './App.css';
 import { useDrag } from 'react-use-gesture';
 
+
+// Start App
 function App() {
   return (
       <div className="App">
@@ -12,11 +17,13 @@ function App() {
 }
 
 
-
+// Colored Header containing informtaion
 class InfoHeader extends React.Component {
 
+    // Default Values
     pages = ['indoor', 'outdoor', 'status']
     titles = ['Gewächshaus', 'Draußen', 'Status']
+
 
     constructor() {
         super();
@@ -28,12 +35,15 @@ class InfoHeader extends React.Component {
 
     }
 
+    // Render View
     render() {
 
+        // Create a fake this for function()
         const bridge = () => {
             return this;
         }
 
+        // Create a Scrolldetecting Frame
         function ScrollOverlay() {
             const bind = useDrag(state=>{
                 const {
@@ -83,6 +93,7 @@ class InfoHeader extends React.Component {
         };
 
 
+        // Resolve Header Colors
         const getHeaderColor = () => {
             switch (this.state.page) {
             case 0:
@@ -96,7 +107,7 @@ class InfoHeader extends React.Component {
             }
         };
 
-
+        //Actual rendering is done here
         return (
             <div style={{
                 overflow: 'hidden'
@@ -110,9 +121,8 @@ class InfoHeader extends React.Component {
                   left: -2
               }}>
 
-                {/*Scroll enabling overlay*/}
+            {/*Scroll enabling overlay*/}
             <ScrollOverlay/>
-
             {/*Top COntainer*/}
                 <div style={{
                     position: 'absolute',
