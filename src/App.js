@@ -210,7 +210,6 @@ class InfoHeader extends React.Component {
                 }}/>
               </header>
             </div>
-alert("HI")
         );
     }
 }
